@@ -1,0 +1,19 @@
+{
+  "name": "eatall",
+  "version": "1.0.0",
+  "description": "Proyecto para reducir el consumo de alimentos perecederos y fomentar una dieta sana",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaimecartodb/eatall.git"
+  },
+  "author": "Jaime de Mora",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaimecartodb/eatall/issues"
+  },
+  "homepage": "https://github.com/jaimecartodb/eatall#readme"
+}
