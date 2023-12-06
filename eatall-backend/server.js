@@ -20,7 +20,7 @@ app.post('/register', async (req, res) => {
     try {
         await sql.connect(dbConfig);
         const { username, email, password } = req.body;
-        // Aquí insertarías los datos en tu base de datos Azure SQL
+        // Datos BBDD
         res.status(201).send("Usuario registrado");
     } catch (err) {
         console.error(err);
