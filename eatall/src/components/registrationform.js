@@ -14,7 +14,6 @@ function RegistrationForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log(userData);
     
         try {
             const response = await fetch('http://localhost:3001/register', {
@@ -28,6 +27,7 @@ function RegistrationForm() {
             if (response.ok) {
                 const result = await response.json();
                 console.log(result);
+            } else {
                 console.log("Error en el registro");
             }
         } catch (error) {
@@ -38,7 +38,7 @@ function RegistrationForm() {
     return (
         <form onSubmit={handleSubmit}>
             <label>
-                Nombre de Usuario:
+                Nombre Completo:
                 <input type="text" name="nombreUsuario" value={userData.nombreUsuario} onChange={handleChange} />
             </label>
             <label>

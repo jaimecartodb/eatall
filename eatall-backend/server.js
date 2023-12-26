@@ -18,6 +18,17 @@ const dbConfig = {
     }
 };
 
+app.get('/usuarios', async (req, res) => {
+    try {
+        await sql.connect(dbConfig);
+        const result = await new sql.Request().query('SELECT * FROM Usuarios');
+        res.status(200).json(result.recordset);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error al recuperar los usuarios');
+    }
+});
+
 app.post('/register', async (req, res) => {
     try {
         await sql.connect(dbConfig);
@@ -33,6 +44,32 @@ app.post('/register', async (req, res) => {
             .query('INSERT INTO Usuarios (NombreUsuario, Email, Contraseña, FechaCreacion) VALUES (@nombreUsuario, @email, @password, @fechaCreacion)');
 
         res.status(201).send("Usuario registrado con éxito");
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error en el servidor");
+    }
+});
+
+app.post('/login', async (req, res) => {
+    try {
+        await sql.connect(dbConfig);
+        const { email, password } = req.body;
+
+        const result = await new sql.Request()
+            .input('email', sql.VarChar, email)
+            .query('SELECT * FROM Usuarios WHERE Email = @email');
+
+        if (result.recordset.length > 0) {
+            const user = result.recordset[0];
+            const validPassword = await bcrypt.compare(password, user.Contraseña);
+            if (validPassword) {
+                res.status(200).send("Inicio de sesión exitoso");
+            } else {
+                res.status(400).send("Contraseña incorrecta");
+            }
+        } else {
+            res.status(404).send("Usuario no encontrado");
+        }
     } catch (err) {
         console.error(err);
         res.status(500).send("Error en el servidor");
