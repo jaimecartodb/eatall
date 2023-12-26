@@ -2,36 +2,54 @@ import React, { useState } from 'react';
 
 function RegistrationForm() {
     const [userData, setUserData] = useState({
-        username: '',
+        nombreUsuario: '',
         email: '',
-        password: ''
+        password: '',
+        fechaCreacion: new Date().toISOString().slice(0, 10)
     });
 
     const handleChange = (event) => {
         setUserData({...userData, [event.target.name]: event.target.value});
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log(userData); // Aquí conectarás con tu backend más adelante
-        // Aquí agregarías la lógica para enviar datos al servidor
+        console.log(userData);
+    
+        try {
+            const response = await fetch('http://localhost:3001/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(userData),
+            });
+    
+            if (response.ok) {
+                const result = await response.json();
+                console.log(result);
+                console.log("Error en el registro");
+            }
+        } catch (error) {
+            console.error('Error al conectar con el servidor', error);
+        }
     };
 
     return (
         <form onSubmit={handleSubmit}>
             <label>
-                Username:
-                <input type="text" name="username" value={userData.username} onChange={handleChange} />
+                Nombre de Usuario:
+                <input type="text" name="nombreUsuario" value={userData.nombreUsuario} onChange={handleChange} />
             </label>
             <label>
                 Email:
                 <input type="email" name="email" value={userData.email} onChange={handleChange} />
             </label>
             <label>
-                Password:
+                Contraseña:
                 <input type="password" name="password" value={userData.password} onChange={handleChange} />
             </label>
-            <button type="submit">Register</button>
+            <button type="submit">Registrarse</button>
         </form>
     );
 }

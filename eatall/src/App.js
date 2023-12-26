@@ -13,10 +13,8 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
-        </a>
-        
-        {/* Aquí agregamos el componente de formulario de registro */}
+          Registro de Usuarios EatAll
+        </a>        
         <RegistrationForm />
       </header>
     </div>
