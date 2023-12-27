@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 function LoginForm() {
     const [loginData, setLoginData] = useState({
         email: '',
         password: ''
     });
+    const history = useHistory();
 
     const handleChange = (event) => {
         setLoginData({...loginData, [event.target.name]: event.target.value});
@@ -16,6 +18,7 @@ function LoginForm() {
         try {
             const response = await axios.post('http://localhost:3001/login', loginData);
             console.log(response.data);
+            history.push('/ingredientform.js');
         } catch (error) {
             console.error('Error al iniciar sesión:', error);
         }

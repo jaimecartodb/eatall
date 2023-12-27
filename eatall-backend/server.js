@@ -76,6 +76,23 @@ app.post('/login', async (req, res) => {
     }
 });
 
+app.post('/agregarIngrediente', async (req, res) => {
+    try {
+        await sql.connect(dbConfig);
+        const { nombre, cantidad } = req.body;
+
+        const result = await new sql.Request()
+            .input('nombre', sql.VarChar, nombre)
+            .input('cantidad', sql.VarChar, cantidad)
+            .query('INSERT INTO IngredientesTemporales (nombre, cantidad) VALUES (@nombre, @cantidad)');
+
+        res.status(201).send("Ingrediente agregado con éxito");
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error en el servidor");
+    }
+});
+
 const port = 3001;
 app.listen(port, () => {
     console.log(`Servidor ejecutándose en http://localhost:${port}`);
