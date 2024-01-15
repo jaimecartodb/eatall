@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './App.css';
 import RegistrationForm from './components/registrationform.js';
 import LoginForm from './components/loginform.js';
@@ -17,17 +17,11 @@ function App() {
             <Link to="/ingredients">Ingredientes</Link>
           </nav>
         </header>
-        <Switch>
-          <Route path="/register">
-            <RegistrationForm />
-          </Route>
-          <Route path="/login">
-            <LoginForm />
-          </Route>
-          <Route path="/ingredients">
-            <IngredientForm />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route path="/register" element={<RegistrationForm />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/ingredients" element={<IngredientForm />} />
+        </Routes>
       </div>
     </Router>
   );
