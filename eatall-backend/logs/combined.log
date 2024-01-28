@@ -7,3 +7,5 @@
 {"level":"info","message":"POST /recomendarRecetas","timestamp":"2024-01-28 18:31:41"}
 {"level":"info","message":"GET /recomendaciones-semanales","timestamp":"2024-01-28 18:31:53"}
 {"level":"info","message":"GET /estadisticas/ingredientes-populares","timestamp":"2024-01-28 18:42:43"}
+{"level":"info","message":"POST /login","timestamp":"2024-01-28 19:33:23"}
+{"level":"info","message":"GET /usuarios","timestamp":"2024-01-28 19:38:03"}

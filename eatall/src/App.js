@@ -14,6 +14,8 @@ function App() {
         <div className="App">
           <header className="App-header">
             <h1>Bienvenido a EatAll</h1>
+            <p></p>
+            <h3>La aplicación que te ayuda a comer más sano cuidando el medioambiente</h3>
             <nav className="nav-links">
               <Link to="/register">Registrarse</Link> | 
               <Link to="/login">Iniciar Sesión</Link>
