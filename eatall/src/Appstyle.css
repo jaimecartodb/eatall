@@ -1,0 +1,70 @@
+.App-header {
+  background-color: navy;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+.App-logo {
+  height: 80px;
+  margin-bottom: 20px;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.nav-links a {color: white;
+  text-decoration: none;
+  font-weight: bold;
+  }
+  
+  .nav-links a:hover {
+  text-decoration: underline;
+  }
+  
+  .form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh; 
+  padding: 20px;
+  }
+  
+  .registration-form,
+  .login-form,
+  .ingredient-form {
+  width: 100%;
+  max-width: 400px; 
+  margin: auto;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  border-radius: 8px; 
+  background: white;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  }
+  
+  button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: navy;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  }
+  
+  button:hover {
+  background-color: darkblue;
+  }

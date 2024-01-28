@@ -1,0 +1,9 @@
+{"level":"info","message":"POST /login","timestamp":"2024-01-28 18:31:02"}
+{"level":"info","message":"GET /recetasRecomendadas/30","timestamp":"2024-01-28 18:31:08"}
+{"level":"info","message":"POST /agregarIngrediente","timestamp":"2024-01-28 18:31:17"}
+{"level":"info","message":"POST /agregarIngrediente","timestamp":"2024-01-28 18:31:23"}
+{"level":"info","message":"POST /agregarIngrediente","timestamp":"2024-01-28 18:31:30"}
+{"level":"info","message":"POST /agregarIngrediente","timestamp":"2024-01-28 18:31:38"}
+{"level":"info","message":"POST /recomendarRecetas","timestamp":"2024-01-28 18:31:41"}
+{"level":"info","message":"GET /recomendaciones-semanales","timestamp":"2024-01-28 18:31:53"}
+{"level":"info","message":"GET /estadisticas/ingredientes-populares","timestamp":"2024-01-28 18:42:43"}
