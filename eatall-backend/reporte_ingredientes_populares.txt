@@ -1,11 +1,11 @@
 Ingredientes más populares:
-Arroz: 11 veces
+Arroz: 12 veces
+Pollo: 8 veces
 Lechuga: 7 veces
 Lentejas: 7 veces
 Pera: 7 veces
-Pollo: 7 veces
 Tomate: 7 veces
+Manzana: 6 veces
 Pan: 6 veces
 Aceite de oliva: 5 veces
-Maíz: 5 veces
-Manzana: 5 veces
+Cerdo: 5 veces

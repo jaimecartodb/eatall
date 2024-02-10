@@ -8,7 +8,7 @@ function IngredientForm() {
     const [recetasRecomendadas, setRecetasRecomendadas] = useState([]);
     const [recetasPasadas, setRecetasPasadas] = useState([]);
     const [recetasRecomendadasSemanales, setRecetasRecomendadasSemanales] = useState([]); 
-    const { auth } = useAuth();
+    const { auth, logout } = useAuth();
     const UsuarioID = auth.UsuarioID;
 
     useEffect(() => {
@@ -56,6 +56,10 @@ function IngredientForm() {
         } catch (error) {
             console.error("Error en la conexión con el servidor", error);
         }
+    };
+
+    const handleLogout = () => {
+        logout();
     };
 
     // Gestionamos la recomendación de recetas con el servidor 
@@ -110,6 +114,7 @@ function IngredientForm() {
 
     return (
         <>
+            <button onClick={handleLogout} style={{ position: 'absolute', top: '10px', right: '10px' }}>Cerrar Sesión</button>
             <form onSubmit={handleSubmit}>
                 <label>
                     Nombre del Ingrediente:
@@ -142,11 +147,13 @@ function IngredientForm() {
                         {recetasRecomendadas.map((receta, index) => (
                             <li key={index}>
                                 <p><strong>{receta.NombreReceta}</strong></p>
-                                <p>{receta.Descripcion}</p>
+                                <p>{receta.Descripcion.split('.').map((sentence, idx) => (
+                                    <span key={idx}>{sentence.trim()}{idx !== receta.Descripcion.split('.').length - 1 && '.'}<br/></span>
+                                ))}</p>
                             </li>
                         ))}
                     </ul>
-                </div>
+                    </div>
             )}
             <p></p>
             <button onClick={handleGetPastRecommendations}>Ver Recetas Recomendadas Pasadas</button>
